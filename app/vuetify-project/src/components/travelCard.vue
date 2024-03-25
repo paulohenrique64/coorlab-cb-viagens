@@ -9,7 +9,7 @@
                 <div class="travel-details">
                     <p class="travel-name">{{ data.name }}</p>
                     <p v-if="economic">Poltrona: {{ data.seat }} (Convencional)</p>
-                    <p v-else>Leito: {{ data.seat }} (Completo)</p>
+                    <p v-else>Leito: {{ data.bed }} (Completo)</p>
                     <p>Tempo estimado: {{ data.duration }}</p>
                 </div>
             </div>
