@@ -92,6 +92,7 @@
                 })
             },
             findFastTravel(selectedCities) {
+                // find fastest and more confort travel
                 let bestTravel = undefined;
                 
                 if (selectedCities[0]) 
@@ -100,21 +101,24 @@
                 selectedCities.forEach(cityData => {
                     if (parseInt(cityData.duration.split('h').at(0)) < parseInt(bestTravel.duration.split('h').at(0))) {
                         bestTravel = cityData;
+                    } else if (parseInt(cityData.duration.split('h').at(0)) === parseInt(bestTravel.duration.split('h').at(0))){
+                        if (parseFloat(cityData.price_confort.split('R$ ').at(1)) > parseFloat(bestTravel.price_confort.split('R$ ').at(1))) 
+                            bestTravel = cityData;
                     }
                 })
 
                 return bestTravel;
             },
             findEconomicTravel(selectedCities) {
+                // find best economic travel
                 let economicTravel = undefined;
                 
                 if (selectedCities[0]) 
                     economicTravel = selectedCities[0];
 
                 selectedCities.forEach(cityData => {
-                    if (parseFloat(cityData.price_econ.split('R$ ').at(1)) < parseFloat(economicTravel.price_econ.split('R$ ').at(1))) {
+                    if (parseFloat(cityData.price_econ.split('R$ ').at(1)) < parseFloat(economicTravel.price_econ.split('R$ ').at(1))) 
                         economicTravel = cityData;
-                    }
                 })
 
                 return economicTravel;
@@ -126,6 +130,16 @@
         }
     }
 </script>
+
+<style lang="scss">
+    .dp-custom-input {
+        --dp-input-padding: 10px 30px 6px 12px; 
+    }
+
+    .dp-custom-input:hover {
+        background-color: #e7e7e7;
+    }
+</style>
 
 <style scoped>
     body{
@@ -186,15 +200,7 @@
     }
 </style>
 
-<style lang="scss">
-    .dp-custom-input {
-        --dp-input-padding: 10px 30px 6px 12px; 
-    }
 
-    .dp-custom-input:hover {
-        background-color: #e7e7e7;
-    }
-</style>
 
 
 

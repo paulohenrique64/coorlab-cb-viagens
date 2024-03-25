@@ -90,4 +90,9 @@
     .travel-price > .price-tag, .travel-name {
         font-weight: 600;
     }
+
+    .travel-price-container:hover {
+        background-color: #91e0ef;
+        cursor: pointer;
+    }
 </style>
